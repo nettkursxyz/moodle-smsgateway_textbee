@@ -38,7 +38,7 @@ class gateway extends \core_sms\gateway {
         $twilioconfig = $DB->get_field(
             table: 'sms_gateways',
             return: 'config',
-            conditions: ['id' => $message->gatewayid, 'enabled' => 1, 'gateway' => 'smsgateway_twilio\gateway',],
+            conditions: ['id' => $message->gatewayid, 'enabled' => 1, 'gateway' => 'smsgateway_twilio\gateway'],
         );
         $status = \core_sms\message_status::GATEWAY_NOT_AVAILABLE;
         if ($twilioconfig) {

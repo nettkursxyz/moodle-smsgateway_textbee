@@ -27,13 +27,17 @@ use core_sms\message;
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  * @covers     \smsgateway_twilio\gateway
  */
-class gateway_test extends \advanced_testcase {
+final class gateway_test extends \advanced_testcase {
 
+    /**
+     * Tests update_message_status function
+     * @covers     \smsgateway_twilio\gateway
+    */
     public function test_update_message_status(): void {
         $this->resetAfterTest();
 
         $config = new \stdClass();
-        $config->acc_sid = 'test_api_key';
+        $config->acc_sid = 'test_acc_sid';
         $config->auth_token = 'test_auth_token';
         $config->from_number = '+1234567890';
 

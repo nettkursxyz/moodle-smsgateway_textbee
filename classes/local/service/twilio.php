@@ -43,7 +43,6 @@ class twilio implements twilio_sms_service_provider {
         string $phonenumber,
         stdclass $config,
     ): message_status {
-        global $SITE;
         self::require();
 
         // Setup client params and instantiate client.
