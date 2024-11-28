@@ -31,8 +31,8 @@ final class gateway_test extends \advanced_testcase {
 
     /**
      * Tests update_message_status function
-     * @covers     \smsgateway_twilio\gateway
-    */
+     * @covers  \smsgateway_twilio\gateway
+     */
     public function test_update_message_status(): void {
         $this->resetAfterTest();
 
