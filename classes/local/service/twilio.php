@@ -34,7 +34,7 @@ class twilio implements twilio_sms_service_provider {
      */
     private static function require(): void {
         global $CFG;
-        require_once($CFG->dirroot . '/.extlib/twilio-php/src/Twilio/autoload.php');
+        require_once($CFG->dirroot . '/sms/gateway/twilio/.extlib/twilio-php/src/Twilio/autoload.php');
     }
 
     #[\Override]
