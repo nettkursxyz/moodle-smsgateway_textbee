@@ -21,9 +21,13 @@ Moodle 4.5 and above
 3. Generate/Copy Test/Live Credentials (Account SID and Auth Token) [from here](https://console.twilio.com/us1/account/keys-credentials/api-keys)
 4. Create New SMS Gateway from Site Administration --> Plugins --> SMS --> Manage SMS Gateways
 5. Enable SMS mobile phone MFA from Admin Tools and configure twilio as SMS gateway from its settings.
-6. Create a user with valid phone number.
-7. Try login with user credentials and User will receive an SMS with 6-digit code.
-8. Enter received 6-digit code to complete the login process.
+6. Create a user account or use admin account.
+7. Login with user/admin credentials
+8. Go to Profile--> Preferences--> Multi-factor authentication preferences (example link http://www.yourdomain.com/admin/tool/mfa/user_preferences.php) and enter your mobile number with country code to register for MFA 
+9. User will receive an SMS with 6-digit code.
+10. Enter received 6-digit code to complete the MFA setup.
+11. Logout the user and login again with credentials.
+12. You will receive 6-digit code to complete the login process.
 
 ## Support
 If you encounter issues or bugs, please open an issue in the official GitHub repository: [GitHub Issues](https://github.com/santoshndev/moodle-smsgateway_twilio/issues)
