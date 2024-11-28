@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<libraries>
+    <library>
+        <location>.extlib/twilio-php</location>
+        <name>Twilio PHP Library</name>
+        <version>8.3.8</version>
+        <license>MIT License</license>
+        <licenseversion>1</licenseversion>
+    </library>
+</libraries>
