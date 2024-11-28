@@ -59,7 +59,7 @@ class twilio implements twilio_sms_service_provider {
                 ]
             );
             return \core_sms\message_status::GATEWAY_SENT;
-        } catch (\Aws\Exception\AwsException $e) {
+        } catch (\Twilio\Exceptions\TwilioException $e) {
             return \core_sms\message_status::GATEWAY_NOT_AVAILABLE;
         }
     }

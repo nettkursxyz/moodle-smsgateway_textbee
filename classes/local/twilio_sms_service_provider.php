@@ -29,16 +29,16 @@ use stdClass;
 interface twilio_sms_service_provider {
 
     /**
-     * Sends an SMS message using the selected aws service provider.
+     * Sends an SMS message using the selected twilio service provider.
      *
      * @param string $messagecontent the content to send in the SMS message.
      * @param string $phonenumber the destination for the message.
-     * @param stdClass $config the configuration
+     * @param stdclass $config the configuration.
      * @return message_status Status of the message.
      */
     public static function send_sms_message(
         string $messagecontent,
         string $phonenumber,
-        stdclass $config,
+        stdclass $config
     ): message_status;
 }

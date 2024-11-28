@@ -54,7 +54,7 @@ class hook_listener {
             elementName: 'gateway',
             defaultValue: 'twilio',
         );
-        // Remove this if more aws gateway implemented, eg sqs.
+        // Remove this if more gateway implemented.
         $mform->hardFreeze('gateway');
 
         $mform->addElement(
