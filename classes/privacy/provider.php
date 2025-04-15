@@ -14,14 +14,14 @@
 // You should have received a copy of the GNU General Public License
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
-namespace smsgateway_twilio\privacy;
+namespace smsgateway_textbee\privacy;
 
 use core_privacy\local\metadata\null_provider;
 
 /**
- * Privacy Subsystem for smsgateway_twilio implementing null_provider.
+ * Privacy Subsystem for smsgateway_textbee implementing null_provider.
  *
- * @package    smsgateway_twilio
+ * @package    smsgateway_textbee
  * @copyright  2024 Santosh N. <santosh.nag2217@gmail.com>
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  * @codeCoverageIgnore
