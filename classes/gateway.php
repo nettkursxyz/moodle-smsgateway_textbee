@@ -14,17 +14,18 @@
 // You should have received a copy of the GNU General Public License
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
-namespace smsgateway_twilio;
+namespace smsgateway_textbee;
 
 use core_sms\manager;
 use core_sms\message;
 use MoodleQuickForm;
 
 /**
- * Twilio SMS gateway.
+ * textbee SMS gateway.
  *
- * @package    smsgateway_twilio
+ * @package    smsgateway_textbee
  * @copyright  2024 Santosh N. <santosh.nag2217@gmail.com>
+ * @forked by Lars Aamodt @ https://nettkurs.xyz
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class gateway extends \core_sms\gateway {
@@ -35,15 +36,15 @@ class gateway extends \core_sms\gateway {
     ): message {
         global $DB;
         // Get the config from the message record.
-        $twilioconfig = $DB->get_field(
+        $textbeeconfig = $DB->get_field(
             table: 'sms_gateways',
             return: 'config',
-            conditions: ['id' => $message->gatewayid, 'enabled' => 1, 'gateway' => 'smsgateway_twilio\gateway'],
+            conditions: ['id' => $message->gatewayid, 'enabled' => 1, 'gateway' => 'smsgateway_textbee\gateway'],
         );
         $status = \core_sms\message_status::GATEWAY_NOT_AVAILABLE;
-        if ($twilioconfig) {
-            $config = (object)json_decode($twilioconfig, true, 512, JSON_THROW_ON_ERROR);
-            $class = '\smsgateway_twilio\local\service\\' . $config->gateway;
+        if ($textbeeconfig) {
+            $config = (object)json_decode($textbeeconfig, true, 512, JSON_THROW_ON_ERROR);
+            $class = '\smsgateway_textbee\local\service\\' . $config->gateway;
             $recipientnumber = manager::format_number(
                 phonenumber: $message->recipientnumber,
                 countrycode: isset($config->countrycode) ?? null,
