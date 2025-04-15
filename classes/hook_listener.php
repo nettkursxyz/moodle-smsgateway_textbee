@@ -14,14 +14,14 @@
 // You should have received a copy of the GNU General Public License
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
-namespace smsgateway_twilio;
+namespace smsgateway_textbee;
 
 use core_sms\hook\after_sms_gateway_form_hook;
 
 /**
- * Hook listener for twilio sms gateway.
+ * Hook listener for textbee sms gateway.
  *
- * @package    smsgateway_twilio
+ * @package    smsgateway_textbee
  * @copyright  2024 Santosh N. <santosh.nag2217@gmail.com>
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
@@ -32,27 +32,27 @@ class hook_listener {
      *
      * @param after_sms_gateway_form_hook $hook The hook to add to sms gateway setup.
      */
-    public static function set_form_definition_for_twilio_sms_gateway(after_sms_gateway_form_hook $hook): void {
-        if ($hook->plugin !== 'smsgateway_twilio') {
+    public static function set_form_definition_for_textbee_sms_gateway(after_sms_gateway_form_hook $hook): void {
+        if ($hook->plugin !== 'smsgateway_textbee') {
             return;
         }
 
         $mform = $hook->mform;
 
-        $mform->addElement('static', 'information', get_string('twilio_information', 'smsgateway_twilio'));
+        $mform->addElement('static', 'information', get_string('textbee_information', 'smsgateway_textbee'));
 
         $gateways = [
-            'twilio' => get_string('twilio', 'smsgateway_twilio'),
+            'textbee' => get_string('textbee', 'smsgateway_textbee'),
         ];
         $mform->addElement(
             'select',
             'gateway',
-            get_string('gateway', 'smsgateway_twilio'),
+            get_string('gateway', 'smsgateway_textbee'),
             $gateways,
         );
         $mform->setDefault(
             elementName: 'gateway',
-            defaultValue: 'twilio',
+            defaultValue: 'textbee',
         );
         // Remove this if more gateway implemented.
         $mform->hardFreeze('gateway');
@@ -60,7 +60,7 @@ class hook_listener {
         $mform->addElement(
             'text',
             'from_number',
-            get_string('twilio_number', 'smsgateway_twilio'),
+            get_string('textbee_number', 'smsgateway_textbee'),
             'maxlength="255" size="20"',
         );
         $mform->setType('from_number', PARAM_TEXT);
@@ -73,7 +73,7 @@ class hook_listener {
         $mform->addElement(
             'text',
             'acc_sid',
-            get_string('acc_sid', 'smsgateway_twilio'),
+            get_string('acc_sid', 'smsgateway_textbee'),
             'maxlength="255" size="20"',
         );
         $mform->setType('acc_sid', PARAM_TEXT);
@@ -85,7 +85,7 @@ class hook_listener {
         $mform->addElement(
             'passwordunmask',
             'auth_token',
-            get_string('auth_token', 'smsgateway_twilio'),
+            get_string('auth_token', 'smsgateway_textbee'),
             'maxlength="255" size="20"',
         );
         $mform->setType('auth_token', PARAM_TEXT);
